@@ -3,19 +3,23 @@ import PropTypes from 'prop-types';
 export default function FeedbackOptions({ options, onLeaveFeedback }) {
   return (
     <div>
-      <button type="button" name="good" onClick={onLeaveFeedback}>
-        Good
-      </button>
-      <button type="button" name="neutral" onClick={onLeaveFeedback}>
-        Neutral
-      </button>
-      <button type="button" name="bad" onClick={onLeaveFeedback}>
-        Bad
-      </button>
+      {options.map(option => {
+        return (
+          <button
+            type="button"
+            key={option}
+            name={option}
+            onClick={onLeaveFeedback}
+          >
+            {option}
+          </button>
+        );
+      })}
     </div>
   );
 }
 
 FeedbackOptions.propTypes = {
+  options: PropTypes.array.isRequired,
   onLeaveFeedback: PropTypes.func.isRequired,
 };

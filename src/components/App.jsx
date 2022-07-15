@@ -11,6 +11,8 @@ class App extends Component {
     bad: 0,
   };
 
+  options = Object.keys(this.state);
+
   handleAddFedback = evt => {
     const target = evt.currentTarget.name;
     this.setState(prevState => {
@@ -41,7 +43,7 @@ class App extends Component {
       <div>
         <Section title={'Please leave feedback'}>
           <FeedbackOptions
-            options={this.state}
+            options={this.options}
             onLeaveFeedback={this.handleAddFedback}
           />
         </Section>
